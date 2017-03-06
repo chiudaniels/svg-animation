@@ -1,39 +1,46 @@
 var requestID;
 var svgEle = document.getElementById("space");
 var grow = true;
-var dimensions= svgEle.getBBox();
+var width= svgEle.getAttribute("width");
+var height= svgEle.getAttribute("height")
+var radius = 0;
 
 var clearWindow = function(){
     svgEle.innerHTML="";
 }
 
 var animateCircle= function(){
-    window.cancelAnimationFrame(requestID);
-    var radius = 0;
-    if (radius > dimensions.width / 2){
-	grow=false;
-    }
-    else if (radius < 0){
-	grow=true; 
-    }
 
-    if (grow){
-	radius++;
-    }
-    else{
-	radius--;
-    }
-    clearWindow();
-    console.log(grow);
-    var circle=document.createElementNS("https://www.w3.org/2000/svg",circle);
-    circle.setAttribute("cx",dimensions.width / 2);
-    circle.setAttribute("cy",dimensions.height / 2);
-    circle.setAttribute("r",radius);
-    circle.setAttribute("stroke","red");
+    // window.cancelAnimationFrame(requestID);
+    // if (radius > 250){
+	// grow=false;
+    // }
+    // else if (radius < 0){
+	// grow=true; 
+    // }
+
+    // if (grow){
+	// radius++;
+    // }
+    // else{
+	// radius--;
+    // }
+	
+    // clearWindow();
+    // console.log(radius);
+	console.log("entered")
+	var circle = document.createElementNS("https://www.w3.org/2000/svg", "circle");
+    circle.setAttribute("cx", 250);
+    circle.setAttribute("cy",250);
+    circle.setAttribute("r", 100);
+    circle.setAttribute("fill","red");
     svgEle.appendChild(circle);
+	console.log(svgEle.innerHTML)
+    // requestID= window.requestAnimationFrame(animateCircle);
+}
 
-    
-    requestID= window.requestAnimationFrame(animateCircle);
+var animateDVD = function (){
+	
 }
 
 var stop = function(){
